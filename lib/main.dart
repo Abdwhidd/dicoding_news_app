@@ -1,3 +1,4 @@
+import 'package:dicoding_news_app/pages/detail_page.dart';
 import 'package:dicoding_news_app/pages/news_list_page.dart';
 import 'package:flutter/material.dart';
 
@@ -19,6 +20,12 @@ class MyApp extends StatelessWidget {
       initialRoute: NewsListPage.routeName,
       routes: {
         NewsListPage.routeName: (context) => NewsListPage(),
+        ArticleDetailPage.routeName: (context) => ArticleDetailPage(
+          article: ModalRoute.of(context)?.settings.arguments as Article,
+        ),
+        ArticleWebView.routeName: (context) => ArticleWebView(
+          url: ModalRoute.of(context)?.settings.arguments as String,
+        ),
       },
     );
   }
